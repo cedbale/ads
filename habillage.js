@@ -13,6 +13,7 @@
     var timestamp = new Date().getTime();
     var reference = encodeURIComponent(window.location.pathname);
     var backgroundColor = '#FFFFFF';
+    var backgroundImage = '%%FILE:JPG1%%';
     var px = new Image();
     px.border=0;
     px.height=1;
@@ -26,11 +27,15 @@
         doc.getElementsByTagName('body')[0].appendChild(px);
     }
 
-    var baseStaticUrl = doc.location.protocol + '//static.bioaddict.fr/operations/defaultStyle';
+    var baseStaticUrl = doc.location.protocol + '//static.bioaddict.fr/operations/';
     var hrefAds = '%%CLICK_URL_UNESC%%' + campaignLink;
 
     if (backgroundColor != null) {
         doc.body.style.backgroundColor = backgroundColor;
+    }
+
+    if (backgroundImage != null) {
+        doc.body.style.backgroundImage = "url('"+backgroundImage+"')";
     }
 
     var e = doc.createElement('link');
